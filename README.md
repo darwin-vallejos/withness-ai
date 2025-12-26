@@ -1,34 +1,35 @@
-# Witness AI
+# Witness AI — Deterministic Decision Attestation
 
-Witness AI is a **deterministic decision-attestation system** for AI.
+Witness AI is a **deterministic, cryptographically verifiable decision-attestation system** for AI and automated workflows.
 
-It evaluates a request **before** an AI model responds and decides whether the action is permitted based on a mathematically defined trust score.  
-Every decision produces a **cryptographically verifiable receipt** that can be independently validated offline.
+It decides **whether** an action is allowed *before* an AI model responds and produces a **receipt** that any third party can independently verify offline — without trusting the AI, the operator, or Witness itself.
 
-Witness does not generate answers.  
-It decides **whether an answer is allowed** and proves that decision afterward.
+This repository contains the **reference implementation** of the Witness Receipt Format (WRF).
 
 ---
 
-## System Flow
+## What Witness Is (and Is Not)
 
-1. **Sensors**  
-   Independent evidence providers that analyze the input and emit bounded signals (e.g., risk, length, heuristics).
+**Witness AI:**
+- Evaluates risk and trust *before* an AI acts
+- Produces immutable, verifiable receipts
+- Is deterministic and auditable
+- Works offline
+- Requires no cloud services
 
-2. **Decision Engine**  
-   Computes coherence and trust using fixed mathematics.
+**Witness AI is NOT:**
+- A model
+- A learning system
+- A policy engine
+- A blockchain
+- A logging framework
 
-3. **Decision Gate**  
-   If trust is below threshold, the request is denied.
-
-4. **Receipt Generation**  
-   A deterministic payload is hashed to produce a cryptographic receipt.
-
-5. **Verification**  
-   Any third party can recompute the hash and verify correctness.
+Witness does not decide what is *true*.  
+It decides **whether an action is permitted** and proves that decision afterward.
 
 ---
 
-## Decision Mathematics
+## System Overview
 
-Coherence:
+High-level flow:
+
