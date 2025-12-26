@@ -1,0 +1,31 @@
+{
+  "payload": {
+    "version": "BIP-1",
+    "ts": "2025-12-25T20:26:07.248451+00:00",
+    "prompt": "from witness.length_sensor import analyze_length",
+    "C": 1.25,
+    "A": 1.2047853834400764,
+    "allowed": true,
+    "aggregated_fear": 0.0736842105263158,
+    "sensors": [
+      {
+        "source": "stub",
+        "fear": 0.1,
+        "confidence": 0.9,
+        "features": {
+          "keyword_danger": 0.0
+        }
+      },
+      {
+        "source": "heuristic",
+        "fear": 0.05,
+        "confidence": 1.0,
+        "features": {
+          "length": 48
+        }
+      }
+    ]
+  },
+  "canonical": "{\"A\":1.2047853834400764,\"C\":1.25,\"aggregated_fear\":0.0736842105263158,\"allowed\":true,\"prompt\":\"from witness.length_sensor import analyze_length\",\"sensors\":[{\"confidence\":0.9,\"fear\":0.1,\"features\":{\"keyword_danger\":0.0},\"source\":\"stub\"},{\"confidence\":1.0,\"fear\":0.05,\"features\":{\"length\":48},\"source\":\"heuristic\"}],\"ts\":\"2025-12-25T20:26:07.248451+00:00\",\"version\":\"BIP-1\"}",
+  "hash": "a376c0a0b19fa0db8ac086db14f0e1eb1959c3f18c8bd4213c9b72705d947828"
+}

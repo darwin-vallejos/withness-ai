@@ -1,0 +1,15 @@
+README.md
+pyproject.toml
+src/witness/__init__.py
+src/witness/cli.py
+src/witness/engine.py
+src/witness/epoch.py
+src/witness/fear.py
+src/witness/gpt_sensor.py
+src/witness/length_sensor.py
+src/witness/sensor_contract.py
+src/witness/verify.py
+src/witness.egg-info/PKG-INFO
+src/witness.egg-info/SOURCES.txt
+src/witness.egg-info/dependency_links.txt
+src/witness.egg-info/top_level.txt
