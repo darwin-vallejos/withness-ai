@@ -1,124 +1,60 @@
-\# Witness Receipt Verifier Contract
-
-
-
-\## Definition
-
-A verifier is any system that recomputes a receipt hash
-
-and checks equality with the declared receipt\_hash.
-
-
+# WRP Verifier
+## Verification Contract
 
 ---
 
+## Role
 
+The WRP Verifier validates receipts produced under the
+Witness Receipt Protocol (WRP).
 
-\## Required Inputs
+It performs deterministic, offline verification.
 
-A verifier MUST require only:
-
-\- Receipt JSON
-
-\- schema\_version
-
-\- receipt type
-
-
-
-No network access is permitted.
-
-
+It does not generate receipts.
+It does not evaluate policy.
+It does not interpret meaning.
 
 ---
 
+## Verification Guarantees
 
+The verifier MUST:
 
-\## Canonicalization (v1.0.0)
+- Recompute canonical bytes
+- Recompute the receipt hash
+- Compare hashes exactly
+- Fail on any mismatch
 
-\- UTF-8 encoding
-
-\- Sorted keys
-
-\- separators = (",", ":")
-
-\- ensure\_ascii = false
-
-
+Verification is binary: PASS or FAIL.
 
 ---
 
+## Statelessness
 
+Verification:
 
-\## Hash Rule
+- Does not depend on network access
+- Does not depend on system state
+- Does not depend on the issuing service
 
-receipt\_hash = SHA-256(canonical(payload))
-
-
-
----
-
-
-
-\## Determinism
-
-Same input MUST yield same result.
-
-
+Only the receipt and protocol rules are required.
 
 ---
 
+## Failure Conditions
 
+Verification MUST fail if:
 
-\## Failure Semantics
-
-Verifier MUST distinguish:
-
-\- Invalid receipt
-
-\- Unsupported schema\_version
-
-\- Unsupported receipt type
-
-
+- Canonicalization differs
+- Hash mismatch occurs
+- Schema version is unknown
+- Receipt structure is invalid
 
 ---
 
+## Authority Boundary
 
+The verifier does not decide truth.
 
-\## Backward Compatibility
-
-Old schemas MUST NOT be reinterpreted.
-
-
-
----
-
-
-
-\## Independence
-
-Verification MUST NOT require:
-
-\- APIs
-
-\- Witness-AI
-
-\- Secrets
-
-\- Cloud services
-
-
-
----
-
-
-
-\## Final Rule
-
-If two verifiers disagree,
-
-the receipt format is broken.
-
-
-
+It proves whether a receipt conforms to
+the Witness Receipt Protocol rules.
